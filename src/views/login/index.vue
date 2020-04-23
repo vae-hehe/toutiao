@@ -11,6 +11,9 @@
       <el-input v-model="form.code" placeholder="请输入验证码"></el-input>
     </el-form-item>
     <el-form-item>
+      <el-checkbox v-model="checked">我已阅读并同意用户协议和隐私条款</el-checkbox>
+    </el-form-item>
+    <el-form-item>
       <el-button type="primary" @click="onSubmit" class="form-btn">登录</el-button>
     </el-form-item>
   </el-form>
@@ -26,7 +29,8 @@ export default {
     return {
       form: {
         mobile: '',
-        code: ''
+        code: '',
+        checked: ''
       }
     }
   },
@@ -58,7 +62,7 @@ export default {
     align-items: center;
     .form{
         min-width: 300px;
-        padding: 30px;
+        padding: 20px 40px;
         background-color: #fff;
         .logo{
             width: 240px;
