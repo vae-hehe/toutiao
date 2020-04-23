@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 
 // 导入组件
 import Login from '@/views/login/'
+import Home from '@/views/home/'
+import Layout from '@/views/layout'
 
 // 注册路由
 Vue.use(VueRouter)
@@ -13,6 +15,18 @@ const routes = [
     path: '/login',
     name: 'login',
     component: Login
+  },
+  {
+    path: '/',
+    // name: 'layout', // 有默认子组件,不用写name了
+    component: Layout,
+    children: [
+      {
+        path: '', // 和父组件的地址一样时,地址为空
+        name: 'home',
+        component: Home
+      }
+    ]
   }
 ]
 

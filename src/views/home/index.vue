@@ -1,10 +1,10 @@
 <template>
-<div class="aside-container"></div>
+<div class="home-container">首页</div>
 </template>
 
 <script>
 export default {
-  name: 'AsideIndex',
+  name: 'HomeIndex',
   components: {},
   props: {},
   data () {

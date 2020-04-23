@@ -1,10 +1,10 @@
 <template>
-<div class="header-container"></div>
+<div class="layout-container"></div>
 </template>
 
 <script>
 export default {
-  name: 'HeaderIndex',
+  name: 'LayoutIndex',
   components: {},
   props: {},
   data () {
