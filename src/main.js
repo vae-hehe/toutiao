@@ -1,8 +1,15 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+
 // 加载全局样式
 import '@/style/index.less'
+// 加载element-ui组件
+import ElementUI from 'element-ui'
+// 加在element 组件库的样式
+import 'element-ui/lib/theme-chalk/index.css'
+// 注册element组件
+Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 
