@@ -35,5 +35,22 @@ const router = new VueRouter({
   routes
 })
 
+// 导航守卫
+router.beforeEach((to, from, next) => {
+  // 查看token
+  const user = JSON.parse(window.localStorage.getItem('user'))
+  // 判断是不是在登录界面
+  if (to.path !== '/login') {
+    // 不在登录界面,看是否有token,有继续,没有跳转到login
+    if (user) {
+      next()
+    } else {
+      next('/login')
+    }
+  } else {
+    next()
+  }
+})
+
 // 导出
 export default router

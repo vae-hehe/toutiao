@@ -1,5 +1,5 @@
 <template>
-<div class="header-container"></div>
+<div class="header-container">顶栏</div>
 </template>
 
 <script>
