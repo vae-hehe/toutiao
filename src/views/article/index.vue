@@ -101,10 +101,12 @@
         label="操作">
         <!-- 将自定义属性放到template中,prop删掉 -->
         <template slot-scope="scope">
+          <!-- 跳转的时候,直接使用$router.push,注意使用拼接字符串,id太长需要转换 -->
           <el-button
             icon="el-icon-edit"
             circle
             type="primary"
+            @click="$router.push('/publish?id='+scope.row.id.toString())"
             size="mini"></el-button>
           <!-- 将 page 绑定到分页组件上用来同步当前页码 -->
           <el-button

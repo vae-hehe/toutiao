@@ -24,3 +24,30 @@ export const getUserProfile = () => {
     // }
   })
 }
+
+// 获取粉丝列表
+export const getFans = params => {
+  return request({
+    method: 'GET',
+    url: '/mp/v1_0/followers',
+    params
+  })
+}
+
+// 编辑用户资料
+export const edituserProfile = data => {
+  return request({
+    method: 'PATCH',
+    url: '/mp/v1_0/user/profile',
+    data
+  })
+}
+
+// 编辑用户头像
+export const editUserPhoto = data => {
+  return request({
+    method: 'PATCH',
+    url: '/mp/v1_0/user/photo',
+    data
+  })
+}

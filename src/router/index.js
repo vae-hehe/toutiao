@@ -6,6 +6,11 @@ import Login from '@/views/login/'
 import Home from '@/views/home/'
 import Layout from '@/views/layout'
 import Article from '@/views/article'
+import Publish from '@/views/publish'
+import Image from '@/views/image/'
+import Comment from '@/views/comment'
+import Fans from '@/views/fans'
+import Settings from '@/views/settings'
 
 // 注册路由
 Vue.use(VueRouter)
@@ -31,6 +36,31 @@ const routes = [
         path: '/article',
         name: 'article',
         component: Article
+      },
+      {
+        path: '/publish',
+        name: 'publish',
+        component: Publish
+      },
+      {
+        path: '/image',
+        name: 'image',
+        component: Image
+      },
+      {
+        path: '/comment',
+        name: 'comment',
+        component: Comment
+      },
+      {
+        path: '/fans',
+        name: 'fans',
+        component: Fans
+      },
+      {
+        path: '/settings',
+        name: 'settings',
+        component: Settings
       }
     ]
   }

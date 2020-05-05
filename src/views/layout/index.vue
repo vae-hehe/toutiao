@@ -33,6 +33,8 @@
 <script>
 import AppAside from './aside'
 import { getUserProfile } from '@/api/user'
+import globalBus from '@/utils/global-bus'
+
 // import AppHeader from './header'
 export default {
   name: 'LayoutIndex',
@@ -51,6 +53,13 @@ export default {
   watch: {},
   created () {
     this.LoadUserProfile()
+
+    // 注册自定义事件
+    // 当事件发布后,才会执行
+    globalBus.$on('update-user', data => {
+      this.user.name = data.name
+      this.user.photo = data.photo
+    })
   },
   mounted () {},
   methods: {

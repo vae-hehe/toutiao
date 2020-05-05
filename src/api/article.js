@@ -27,3 +27,51 @@ export const deleteArticle = (articleId) => {
     url: `/mp/v1_0/articles/${articleId}`
   })
 }
+
+// 发布文章
+// 设置草稿的默认状态是false 不是草稿
+export const publishArticle = (data, draft = false) => {
+  return request({
+    method: 'POST',
+    url: '/mp/v1_0/articles',
+    params: {
+      draft
+    },
+    data
+  })
+}
+
+// 编辑文章
+// 有默认值的参数必须是最后一个
+export const editArticl = (articleId, data, draft = false) => {
+  return request({
+    method: 'PUT',
+    url: `/mp/v1_0/articles/${articleId}`,
+    params: {
+      draft
+    },
+    data
+  })
+}
+
+// 获取指定文章,渲染编辑文章界面
+export const getEditArticle = (articleId) => {
+  return request({
+    method: 'GET',
+    url: `/mp/v1_0/articles/${articleId}`
+  })
+}
+
+// 修改文章评论状态
+export const updateCommentStatus = (articleId, allowComment) => {
+  return request({
+    method: 'PUT',
+    url: '/mp/v1_0/comments/status',
+    params: {
+      article_id: articleId
+    },
+    data: {
+      allow_comment: allowComment
+    }
+  })
+}

@@ -2,7 +2,7 @@
 <div class="aside-container">
   <!-- default-active="/" 默认选中的项 -->
   <el-menu
-      default-active="/"
+      :default-active="$route.path"
       router
       :collapse='isCollapse'
       class="aside-item"
