@@ -197,7 +197,11 @@ export default {
   watch: {},
   created () {
     this.loadChannels()
-    this.getAticle()
+
+    // 判断加载是不是编辑界面
+    if (this.$route.query.id) {
+      this.getAticle()
+    }
   },
   mounted () {}
 }
