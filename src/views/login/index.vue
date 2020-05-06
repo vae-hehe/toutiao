@@ -80,12 +80,13 @@ export default {
         }
       })
     },
-    login () {
+    async login () {
       // 登录之前,loginLoading开启
       this.loginLoading = true
-      // 登录
-      Login(this.user).then(res => {
-        console.log(res)
+
+      try {
+        // 登录
+        const res = await Login(this.user)
         // 登录成功
         this.$message({
           message: '登录成功',
@@ -101,12 +102,11 @@ export default {
         this.$router.push({
           name: 'home'
         })
-      }).catch(err => {
-        console.log(err)
+      } catch (err) {
         this.$message.error('登录失败')
         // 登陆成功之后,关闭
         this.loginLoading = false
-      })
+      }
     }
   }
 }

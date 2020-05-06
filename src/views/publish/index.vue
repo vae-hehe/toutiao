@@ -157,7 +157,7 @@ export default {
     // 发布文章
     onPublish (draft = false) {
       // 验证表单内容
-      this.$refs.form.validate(value => {
+      this.$refs.form.validate(async value => {
         if (!value) {
           // 表单验证失败
           return
@@ -166,24 +166,21 @@ export default {
         const articleId = this.$route.query.id
         if (articleId) {
           // 有id就是编辑文章
-          editArticl(articleId, this.article, draft).then(res => {
-            this.$message({
-              type: 'success',
-              message: '修改成功'
-            })
-            this.$router.push('/article')
+          const res = await editArticl(articleId, this.article, draft)
+          this.$message({
+            type: 'success',
+            message: '修改成功'
           })
-        } else {
-          // 表单验证成功 ,提交表单
-          publishArticle(this.article, draft).then(res => {
-            console.log(res)
-            this.$message({
-              type: 'success',
-              message: `${draft ? '存为草稿' : '发布成功'}`
-            })
-            this.$router.push('/article')
-          })
+          this.$router.push('/article')
+          return
         }
+        // 表单验证成功 ,提交表单
+        const res = await publishArticle(this.article, draft)
+        this.$message({
+          type: 'success',
+          message: `${draft ? '存为草稿' : '发布成功'}`
+        })
+        this.$router.push('/article')
       })
     },
     // 获取指定文章,渲染界面

@@ -177,25 +177,24 @@ export default {
   },
   mounted () {},
   methods: {
-    loadArticles (page = 1) {
+    async loadArticles (page = 1) {
       // 加载页面的时候开启
       this.loading = true
-      getArticles({
+      const res = await getArticles({
         page,
         per_page: this.pageSize,
         status: this.status,
         channel_id: this.channelId,
         begin_pubdate: this.rangeDate ? this.rangeDate[0] : null,
         end_pubdate: this.rangeDate ? this.rangeDate[1] : null
-      }).then(res => {
-        console.log(res)
-        const { results, total_count: totalCount } = res.data.data
-        this.articles = results
-        this.totalCount = totalCount
-
-        // 关闭
-        this.loading = false
       })
+      console.log(res)
+      const { results, total_count: totalCount } = res.data.data
+      this.articles = results
+      this.totalCount = totalCount
+
+      // 关闭
+      this.loading = false
     },
     // 根据当前点击的页码,切换页面
     onCurrentChange (page) {
