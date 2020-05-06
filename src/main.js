@@ -7,7 +7,7 @@ import '@/style/index.less'
 // 加载element-ui组件
 import ElementUI from 'element-ui'
 // 加在element 组件库的样式
-import 'element-ui/lib/theme-chalk/index.css'
+// import 'element-ui/lib/theme-chalk/ind/ex.css'
 // 注册element组件
 Vue.use(ElementUI)
 

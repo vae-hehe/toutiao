@@ -5,6 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+
+    <!-- 优化: 不打包第三方包 -->
+    <!-- element-ui的css样式库 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-ui@2.13.1/lib/theme-chalk/index.css">
+
+    <!-- element-ui 依赖的 vue, vue一定要放在前面 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js"></script>
+
+    <!-- element-ui的脚本文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/element-ui@2.13.1/lib/index.js"></script>
+
+    <!-- echarts的脚本文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@4.7.0/dist/echarts.min.js"></script>
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
